@@ -19,6 +19,15 @@ treslong* newNbr0(int capa)
     return t;
 }
 
+treslong* newNbr(char* strval)
+{
+    int n = strlen(strval);
+    treslong* t = newNbr0(n+10);
+    t->n = n;
+    for(int i=0; i<t->n; i++) t->tab[i] = strval[t->n-i-1]-'0';
+    return t;
+}
+
 treslong* sum(treslong* a, treslong* b)
 {
     if(a->n > b->n) return sum(b,a);
